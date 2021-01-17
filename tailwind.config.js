@@ -14,12 +14,15 @@ module.exports = {
       xl: "1280px",
       xxl: "2040px",
     },
+    fontFamily: {
+      title: ["Pagella", "serif"],
+    },
     extend: {
       colors: {
         themeBlue: "#4071b3",
         darkBlue: "#355379",
         darkestBlue: "#223a5c",
-        white: "#ffffff",
+        white: "#fbfbfb",
 
       },
       backgroundColor: (theme) => theme("colors"),

@@ -17,8 +17,8 @@ const Page = ({ doc }) => {
           <title>Orion Revisjon - {post.title[0].text}</title>
 
         </Head>
-        <div className="md:max-w-5xl mx-auto px-4">
-          <h1 className="text-3xl mb-4 text-darkestBlue">{RichText.asText(post.title)}</h1>
+        <div className="md:max-w-5xl mx-auto px-4 min-h-full">
+          <h1 className="text-3xl mb-4 text-darkBlue font-title">{RichText.asText(post.title)}</h1>
 
           <div className="text-lg">
             <RichText render={post.content}></RichText>
