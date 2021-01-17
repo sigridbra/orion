@@ -12,15 +12,17 @@ const Page = ({ doc }) => {
 
 
     return (
-      <div>
+      <div className="flex-auto">
         <Head>
           <title>Orion Revisjon - {post.title[0].text}</title>
 
         </Head>
-        <div className="md:max-w-6xl mx-auto px-4 h-l">
-        <h1 className="text-3xl mb-4 text-darkestBlue">{RichText.asText(post.title)}</h1>
-        
-          <RichText render={post.content}></RichText>
+        <div className="md:max-w-5xl mx-auto px-4">
+          <h1 className="text-3xl mb-4 text-darkestBlue">{RichText.asText(post.title)}</h1>
+
+          <div className="text-lg">
+            <RichText render={post.content}></RichText>
+          </div>
 
         </div>
       </div>

@@ -33,7 +33,7 @@ export const Footer = ( ) => {
 
   return (
     <footer className={styles.footer}>
-    <div className="lg:max-w-6xl mx-auto px-4 my-4">
+    <div className="lg:max-w-5xl mx-auto px-4 my-4">
     {footer ? <RichText render={footer?.content}></RichText> : null}
     </div>
   </footer>
