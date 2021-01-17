@@ -2,8 +2,7 @@ import '../styles/globals.css'
 import Head from 'next/head'
 import {  NavBar, Footer } from "../components";
 
-import styles from '../styles/Home.module.css'
-
+import "tailwindcss/tailwind.css";
 
 
 function MyApp({ Component, pageProps }) {

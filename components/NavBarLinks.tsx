@@ -30,7 +30,7 @@ export const NavBarLinks = () => {
       
     }, []);
 
-    console.log("NAvlinks", navLinks)
+    console.log("Navlinks", navLinks, router.asPath)
   return (
     <div className="flex flex-col md:flex-row">
       {navLinks && navLinks?.map((link, index) => (
@@ -39,12 +39,12 @@ export const NavBarLinks = () => {
             className={cn(
               "ml-4 md:ml-8 mb-6 md:mb-0 capitalize md:text-xl hover:underline",
               {
-                "font-bold": router.asPath === link.uid,
+                "font-bold": router.asPath.toLowerCase() === "/" +link.uid.toLowerCase(),
                 "text-grey-dark": router.asPath !== link.uid,
               }
             )}
           >
-            {link.uid}
+            {link.uid.replace("-", " ")}
           </a>
         </Link>
       ))}

@@ -28,8 +28,8 @@ export default function Home() {
     <div className={styles.container}>
 
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
+      <main className="lg:max-w-6xl mx-auto px-4 ">
+        <h1 className="text-7xl">
          Velkommen til Orion Revisjon
         </h1>
 
