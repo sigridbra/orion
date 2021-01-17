@@ -10,10 +10,12 @@ export default function Home() {
   const client = Client();
 
   const [doc, setDoc] = useState();
+  const [title, setTitle] = useState();
 
   useEffect(() => {
     async function load() {
       let response = await client.getSingle('frontpage');
+      setTitle(response);
       const content = await client.getByUID('page', response.data.frontpage.uid);
       setDoc(content);
 
@@ -29,7 +31,7 @@ export default function Home() {
 
       <main className="lg:max-w-5xl mx-auto px-4 mt-8 flex flex-col justify-center">
         <h1 className="text-5xl mb-8">
-        {doc ? <RichText render={doc.data.titletext}></RichText> : "Velkommen til Orion Revisjon"}
+        {title ? <RichText render={title.data.titletext}></RichText> : "Velkommen til Orion Revisjon"}
         </h1>
 
         <div className="text-lg xl:text-xl" >
