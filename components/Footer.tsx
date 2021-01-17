@@ -10,11 +10,15 @@ interface Props {
   internalRoute: boolean;
 }
 
+interface FooterModel {
+  content: any;
+}
+
 export const Footer = ( ) => {
 
   const client = Client();
 
-  const [footer, setFooter] = useState();
+  const [footer, setFooter] = useState<FooterModel>();
 
   useEffect(() => {
     async function load() {
@@ -29,7 +33,7 @@ export const Footer = ( ) => {
 
   return (
     <footer className={styles.footer}>
-    <div className="lg:max-w-6xl mx-auto px-4">
+    <div className="lg:max-w-6xl mx-auto px-4 my-4">
     {footer ? <RichText render={footer?.content}></RichText> : null}
     </div>
   </footer>

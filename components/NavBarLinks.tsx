@@ -21,7 +21,6 @@ export const NavBarLinks = () => {
       async function load() {
   
         let response = await client.getSingle('menu', null);
-        console.log("Menu", response.data.menu);
         let links = response.data.menu.map(page => page.page as NavLink)
         setNavLinks(links)
       }
@@ -30,9 +29,8 @@ export const NavBarLinks = () => {
       
     }, []);
 
-    console.log("Navlinks", navLinks, router.asPath)
   return (
-    <div className="flex flex-col md:flex-row">
+    <div className="flex flex-row">
       {navLinks && navLinks?.map((link, index) => (
         <Link key={index} href={link.uid}>
           <a

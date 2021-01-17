@@ -17,12 +17,18 @@ module.exports = {
     extend: {
       colors: {
         themeBlue: "#4071b3",
-        darkBlue: "355379",
-        darkestBlue: "223a5c",
+        darkBlue: "#355379",
+        darkestBlue: "#223a5c",
         white: "#ffffff",
 
       },
       backgroundColor: (theme) => theme("colors"),
+      height: {
+        sm: '8px',
+        md: '16px',
+        lg: '60vh',
+        xl: '80vh',
+       }
     },
   },
   variants: {

@@ -28,12 +28,12 @@ export default function Home() {
     <div className={styles.container}>
 
 
-      <main className="lg:max-w-6xl mx-auto px-4 ">
-        <h1 className="text-7xl">
+      <main className="lg:max-w-5xl mx-auto px-4 h-xl">
+        <h1 className="text-7xl mb-8">
          Velkommen til Orion Revisjon
         </h1>
 
-        <div className={styles.grid}>
+        <div >
           {doc ? <RichText render={doc.data.content}></RichText> : null}
         </div>
       </main>

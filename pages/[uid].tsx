@@ -9,7 +9,6 @@ const Page = ({ doc }) => {
 
   const render = (doc) => {
     const post = doc.data
-    console.log(post.title[0])
 
 
     return (
@@ -18,8 +17,8 @@ const Page = ({ doc }) => {
           <title>Orion Revisjon - {post.title[0].text}</title>
 
         </Head>
-        <div className="lg:max-w-6xl mx-auto px-4">
-        <h1 className="text-3xl mb-4">{RichText.asText(post.title)}</h1>
+        <div className="md:max-w-6xl mx-auto px-4 h-l">
+        <h1 className="text-3xl mb-4 text-darkestBlue">{RichText.asText(post.title)}</h1>
         
           <RichText render={post.content}></RichText>
 
@@ -38,7 +37,6 @@ const Page = ({ doc }) => {
 export async function getStaticProps({ params }) {
   const client = Client();
   const doc = (await client.getByUID('page', params.uid, null));
-  console.log(params, doc)
   return {
     props: {
       doc,
