@@ -12,6 +12,8 @@ interface Props {
 
 interface FooterModel {
   content: any;
+  contentmiddle: any;
+  contentright: any;
 }
 
 export const Footer = ( ) => {
@@ -33,8 +35,11 @@ export const Footer = ( ) => {
 
   return (
     <footer className={styles.footer}>
-    <div className="lg:max-w-5xl mx-auto px-4 my-4">
-    {footer ? <RichText render={footer?.content}></RichText> : null}
+    <div className="lg:max-w-5xl mx-auto px-4 my-4 flex flex-row justify-between">
+      <div>{footer ? <RichText render={footer?.content}></RichText> : null}</div>
+      <div>{footer ? <RichText render={footer?.contentmiddle}></RichText> : null}</div>
+      <div>{footer ? <RichText render={footer?.contentright}></RichText> : null}</div>
+    
     </div>
   </footer>
   );

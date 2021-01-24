@@ -10,6 +10,15 @@
   align-items: center;
 }
 
+.feedList a{
+  border-top: 1px solid #c9c9c9;
+}
+
+
+.feedList a:first-child {
+  border-top: 0;
+}
+
 .footer {
   width: 100%;
   border-top: 1px solid #eaeaea;

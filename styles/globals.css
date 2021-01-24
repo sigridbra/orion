@@ -23,3 +23,7 @@ a {
   font-family: 'Pagella';
   src: local('Pagella'), url(../public/assets/fonts/texgyrepagella-bolditalic.otf) format('opentype');
 }
+
+p {
+  min-height: 16px;
+}

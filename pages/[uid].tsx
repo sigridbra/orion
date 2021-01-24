@@ -4,12 +4,12 @@ import { RichText } from 'prismic-reactjs'
 import Head from 'next/head'
 import Prismic from '@prismicio/client'
 import { GetStaticPaths } from 'next'
+import { RssFeed } from '../components/RssFeed'
 
 const Page = ({ doc }) => {
 
   const render = (doc) => {
     const post = doc.data
-
 
     return (
       <div className="flex-auto">
@@ -20,8 +20,9 @@ const Page = ({ doc }) => {
         <div className="md:max-w-5xl mx-auto px-4 min-h-full">
           <h1 className="text-3xl mb-4 text-darkBlue font-title">{RichText.asText(post.title)}</h1>
 
-          <div className="text-lg">
-            <RichText render={post.content}></RichText>
+          <div className="text-lg flex flex-row justify-between">
+            {post.content[0]?.text == "feed" ? <RssFeed></RssFeed> : <RichText render={post.content}></RichText> }
+            {post.contentRight ? <RichText render={post.contentRight}></RichText> : null}
           </div>
 
         </div>

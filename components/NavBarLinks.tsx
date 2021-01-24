@@ -30,7 +30,7 @@ export const NavBarLinks = () => {
     }, []);
 
   return (
-    <div className="flex flex-row">
+    <div className="flex flex-row mt-4">
       {navLinks && navLinks?.map((link, index) => (
         <Link key={index} href={link.uid}>
           <a
