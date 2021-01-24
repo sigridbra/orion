@@ -20,9 +20,12 @@ const Page = ({ doc }) => {
         <div className="md:max-w-5xl mx-auto px-4 min-h-full">
           <h1 className="text-3xl mb-4 text-darkBlue font-title">{RichText.asText(post.title)}</h1>
 
-          <div className="text-lg flex flex-row justify-between">
-            {post.content[0]?.text == "feed" ? <RssFeed></RssFeed> : <RichText render={post.content}></RichText> }
-            {post.contentRight ? <RichText render={post.contentRight}></RichText> : null}
+          <div className="text-lg flex flex-row">
+            <div className="flex-1">{post.content[0]?.text == "feed" ? <RssFeed></RssFeed> : <RichText render={post.content}></RichText>}
+            </div>
+            {post.contentright && post.contentright.length > 0 ? <div className="flex-1">
+               <RichText render={post.contentright}></RichText>
+            </div> : null}
           </div>
 
         </div>
