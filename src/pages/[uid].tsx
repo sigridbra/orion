@@ -1,5 +1,5 @@
 import React from 'react'
-import { Client } from '../../prismic-configuration'
+import { Client } from '../prismic-configuration'
 import { RichText } from 'prismic-reactjs'
 import Head from 'next/head'
 import Prismic from '@prismicio/client'

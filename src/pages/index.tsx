@@ -1,6 +1,5 @@
 
 import { RichText, RichTextBlock } from 'prismic-reactjs';
-import { useEffect, useState } from 'react';
 import { Client } from '../prismic-configuration'
 
 import styles from '../styles/Home.module.css'
