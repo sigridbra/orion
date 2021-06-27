@@ -11,8 +11,8 @@ type CustomFeed = { foo: string };
 type CustomItem = {
   link: string,
   title: string,
-  content: string,
-  isoDate: string
+  description: string,
+  pubDate: string
 };
 
 export const RssFeed = () => {
@@ -20,32 +20,33 @@ export const RssFeed = () => {
   const parser: Parser<CustomFeed, CustomItem> = new Parser({
     customFields: {
       feed: ['foo'],
-      item: ['link', 'title', 'content']
+      item: ['link', 'title', 'description']
     }
   });
 
   const [feed, setFeed] = useState(null);
 
   useEffect(() => {
-    async function load() {
+        async function load() {
       // Note: some RSS feeds can't be loaded in the browser due to CORS security.
       // To get around this, you can use a proxy.
-      const CORS_PROXY = "https://cors-anywhere.herokuapp.com/"
-      const feedRes = await parser.parseURL(CORS_PROXY + 'https://www.revisorforeningen.no/oversikt-over-rss--atom-feeds/nyheter-rss/');
-  
-      setFeed(feedRes)
+      //const CORS_PROXY = "https://cors-anywhere.herokuapp.com/"
+  await fetch("https://api.rss2json.com/v1/api.json?rss_url=https://revisorforeningen.no/oversikt-over-rss--atom-feeds/nyheter-rss")
+      .then(function(response) {
+        return response.json();
+      }).then(function(data){ 
+        setFeed(data);
+      });
     }
     load();
-
-
   }, []);
 
   const renderItem = (item: CustomItem) => {
-    const date = Date.parse(item.isoDate);
+    const date = Date.parse(item.pubDate);
     return (
-      <a href={item.link} className="block my-2 w-full">
+      <a href={item.link} className="block my-3 w-full">
         {new Date(date).toLocaleDateString()} - <b>{item.title}</b>
-        <div>{item.content}</div>
+        <div>{item.description}</div>
       </a>
     )
   }
@@ -53,7 +54,7 @@ export const RssFeed = () => {
   return (
     <div className="text-base">
       <div className={styles.feedList}>
-        {feed ? feed.items.slice(0, 15).map(item => renderItem(item)) : "Laster ..."}
+        {feed ? feed.items.slice(0, 10).map(item => renderItem(item)) : "Laster ..."}
       </div>
     </div>
   );
