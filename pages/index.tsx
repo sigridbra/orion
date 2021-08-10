@@ -8,14 +8,19 @@ type Page = {
   uid: string;
   content: any;
 }
-
+ 
+type Image = {
+  url: string;
+  altText: string;
+}
 type FrontPageContent =  {
   titletext: RichTextBlock[];
   frontpage: Page;
+  image: Image;
 };
 
 
-export default function Home({ titletext, frontpage}: FrontPageContent) {
+export default function Home({ titletext, frontpage, image}: FrontPageContent) {
 
 
   return (
@@ -24,11 +29,13 @@ export default function Home({ titletext, frontpage}: FrontPageContent) {
 
       <main className="lg:max-w-5xl mx-auto px-4 mt-8 flex flex-col justify-center">
         <div className="text-5xl mb-8">
+         
         {titletext ? <RichText render={titletext}></RichText> : "Velkommen til Orion Revisjon"}
         </div>
 
         <div className="text-lg xl:text-xl" >
           {frontpage ? <RichText render={frontpage.content}></RichText> : null}
+          <img src={image.url} alt={image.altText} className="mt-4 object-cover w-full h-96"></img>
         </div>
       </main>
 
@@ -50,6 +57,7 @@ export async function getStaticProps() {
     props: {
       titletext: pageContent.titletext,
       frontpage,
+      image: pageContent.image
     },
     revalidate: 4,
   };
